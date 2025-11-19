@@ -2,9 +2,15 @@ import { CalendarDays } from "lucide-react";
 import React, { useRef } from "react";
 import { Input } from "../ui/input";
 
-const InputData = ({ name }) => {
-  const inputRef = useRef(null);
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+interface InputDataProps {
+  name: string;
+}
+
+const InputData: React.FC<InputDataProps> = ({ name }) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const isIOS = /iPad|iPhone|iPod/.test(
+    typeof navigator !== "undefined" ? navigator.userAgent : ""
+  );
 
   const openPicker = () => {
     const el = inputRef.current;
@@ -15,6 +21,7 @@ const InputData = ({ name }) => {
       return;
     }
 
+    // iOS fallback
     if (isIOS) {
       el.focus();
       return;

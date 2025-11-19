@@ -1,7 +1,13 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
-const FooterCard = (props) => {
+interface FooterCardProps {
+  img: string | StaticImageData;
+  text: string;
+  description: string;
+}
+
+const FooterCard = (props: FooterCardProps) => {
   return (
     <>
       <div className="flex items-center gap-[10px]">

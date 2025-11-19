@@ -1,7 +1,13 @@
-import Image from 'next/image'
-import React from 'react'
+import Image, { StaticImageData } from "next/image";
+import React from "react";
 
-const HomeCard1 = (props) => {
+interface HomeCard1Props {
+  image: string | StaticImageData;
+  text: string;
+  description: string;
+}
+
+const HomeCard1 = (props: HomeCard1Props) => {
   return (
     <>
       <div className='xl:w-[26%] w-[90%] flex text-center flex-col items-center gap-[10px]'>
@@ -10,7 +16,7 @@ const HomeCard1 = (props) => {
         <p>{props.description}</p>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default HomeCard1
+export default HomeCard1;
