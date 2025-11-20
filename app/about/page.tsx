@@ -2,7 +2,6 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import "../globals.css";
 import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 
