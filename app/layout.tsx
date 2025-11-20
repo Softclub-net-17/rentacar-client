@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import Navbar from "./layouts/navbar";
 import Footer from "./layouts/footer";
 

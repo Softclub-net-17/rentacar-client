@@ -1,6 +1,10 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+// components
 
 // images
 import imageLogo from "@/public/Logo (9).svg";
@@ -21,22 +25,32 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
+  const pathname = usePathname();
   return (
     <>
       <nav className="flex  justify-between px-[20px] items-center pt-[15px] py-[10px]">
         <Image src={imageLogo} alt="" />
         <ul className="xl:flex hidden  gap-[30px] items-center">
           <li>
-            <Link href={""}>Home</Link>
+            <Link className={pathname == "/" ? "font-bold" : ""} href={"/"}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link href={""}>Vehicles</Link>
+            <Link className={pathname == "" ? "font-bold" : ""} href={""}>
+              Vehicles
+            </Link>
           </li>
           <li>
             <Link href={""}>Details</Link>
           </li>
           <li>
-            <Link href={""}>About Us</Link>
+            <Link
+              className={pathname == "/about" ? "font-bold" : ""}
+              href={"about"}
+            >
+              About Us
+            </Link>
           </li>
           <li>
             <Link href={""}>Contact Us</Link>
@@ -70,6 +84,41 @@ const Navbar = () => {
                   This action cannot be undone.
                 </DrawerDescription>
               </DrawerHeader>
+              <div>
+                <ul className="flex flex-col gap-[30px] px-[20px]">
+                  
+                  <li>
+                    <Link
+                      className={pathname == "/" ? "font-bold" : ""}
+                      href={"/"}
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={pathname == "" ? "font-bold" : ""}
+                      href={""}
+                    >
+                      Vehicles
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={""}>Details</Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={pathname == "/about" ? "font-bold" : ""}
+                      href={"about"}
+                    >
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={""}>Contact Us</Link>
+                  </li>
+                </ul>
+              </div>
               <DrawerFooter>
                 <div className="flex gap-[10px] items-center">
                   <Image src={imageCallCenter} alt="" />
