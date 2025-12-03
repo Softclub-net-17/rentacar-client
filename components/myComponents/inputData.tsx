@@ -1,3 +1,4 @@
+"use client"
 import { CalendarDays } from "lucide-react";
 import React, { useRef } from "react";
 import { Input } from "../ui/input";
